@@ -1,0 +1,55 @@
+:root {
+    --total-width: calc(var(--n) * 140px); /* Replace with total item width + padding */
+    --n: 8; /* Replace with actual number of slider items */
+  }
+  
+  .slider {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 2.5rem;
+  }
+  
+  .item {
+    flex: 0 0 auto;
+    animation: animate-loop 8s linear infinite;
+  }
+  
+  .item img {
+    height: 180px;
+    width: 320px;
+    padding: 0 30px;
+  }
+  
+  .slider:hover .item {
+    cursor: pointer; /* Optional: Add hover cursor style */
+  }
+  
+  .slider .item:hover {
+    opacity: 0.8; /* Optional: Add hover opacity change */
+    cursor: pointer; /* Optional: Add hover cursor style */
+    &.paused {
+      opacity: 1; /* Optional: Reset hover opacity */
+    }
+  }
+  
+  .item.paused {
+    animation-play-state: paused;
+  }
+  
+  @keyframes animate-loop {
+    0% {
+      transform: translateX(0%);
+    }
+    95% {
+      transform: translateX(calc(-100% - var(--total-width)));
+      animation: animate-reset 0.5s linear forwards; /* Reset animation */
+    }
+  }
+  
+  @keyframes animate-reset {
+    from { transform: translateX(calc(-100% - var(--total-width))); }
+    to { transform: translateX(0%); }
+  }
+  

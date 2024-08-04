@@ -1,0 +1,46 @@
+/* Gallery container */
+.gallery {
+    display: flex;
+    padding: 100px;
+    flex-wrap: wrap;
+    margin: 0.5rem;
+    padding: 0.5rem; /* Padding on all sides */
+}
+
+/* Default styles for smaller screens */
+.single-video {
+    flex: 1 1 calc(100% - 1rem); /* Full width minus margins */
+    margin: 0.5rem;
+}
+
+/* Medium screens (tablets, small desktops) */
+@media (min-width: 600px) {
+    .single-video {
+        flex: 1 1 calc(50% - 1rem); /* Two videos per row */
+    }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 992px) {
+    .single-video {
+        flex: 1 1 calc(33.333% - 1rem); /* Three videos per row */
+    }
+    .site-main {
+        padding: 0 10rem; /* Padding on left and right */
+    }
+}
+
+/* Maintain video aspect ratio */
+figure {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    margin: 0; /* Remove default margin */
+}
+
+figure iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 0; /* Remove default border */
+}
+  
